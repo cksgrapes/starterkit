@@ -1,4 +1,5 @@
 module.exports = ({ env }) => ({
+  parser: require('postcss-comment'),
   plugins: [
     require('autoprefixer')(),
     require('css-declaration-sorter')({

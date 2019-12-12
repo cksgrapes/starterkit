@@ -1,0 +1,81 @@
+// ========================================
+// clearfix
+// ========================================
+
+@mixin clearfix {
+  &:after {
+      content:" ";
+      display:block;
+      clear:both;
+  }
+}
+
+// ========================================
+// Text Hover
+// ========================================
+
+@mixin hoverAction($name) {
+  @if $name == 'transparent' {
+    transition: opacity .2s ease-out;
+    &:hover {
+      opacity: .7;
+    }
+  }
+  @else if $name == 'color-primary' {
+    transition: color .2s ease-out;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+@mixin placeholder {
+  &:placeholder-shown {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+  &::-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+// ========================================
+// Media Query
+// ========================================
+
+$breakpoint-min: (
+  'sm': 'print, screen and (min-width: 568px)',
+  'md': 'print, screen and (min-width: 768px)',
+  'lg': 'print, screen and (min-width: 1024px)',
+  'xl': 'print, screen and (min-width: 1200px)',
+);
+
+// max-width
+$breakpoint-max: (
+  'sm': 'print, screen and (max-width: 567px)',
+  'md': 'print, screen and (max-width: 767px)',
+  'lg': 'print, screen and (max-width: 1023px)',
+  'xl': 'print, screen and (max-width: 1199px)',
+);
+
+@mixin media($breakpoint: md) {
+  @media #{map-get($breakpoint-min, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mediaMax($breakpoint: md) {
+  @media #{map-get($breakpoint-max, $breakpoint)} {
+    @content;
+  }
+}

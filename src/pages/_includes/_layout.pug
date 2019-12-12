@@ -1,13 +1,13 @@
 block variables
   -
-    var global_img = '/assets/images/';
-    var dummy_img = '/assets/images/dummy/';
+    const global_img = '/assets/images/';
+    const dummy_img = '/assets/images/dummy/';
 
 doctype
 html(lang='ja')
   head(prefix='og: http://ogp.me/ns#')
-    link(href='/assets/styles/common.css')
+    link(href='/assets/styles/main.css', rel='stylesheet')
+    script(src='/assets/scripts/main.js', defer)
 
   body
     block body
-    script(src='/assets/scripts/common.js')

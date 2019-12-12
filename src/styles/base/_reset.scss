@@ -1,0 +1,101 @@
+@use 'src/styles/abstracts/variables';
+@use 'src/styles/abstracts/mixins';
+
+// ========================================
+// Base
+// ========================================
+
+* {
+  box-sizing: border-box;
+  word-wrap : break-word;
+  overflow-wrap : break-word;
+  background: {
+    repeat: no-repeat;
+  }
+}
+
+html {
+  overflow-y: scroll;
+  // font-size: 62.5%;
+  font-size: 10px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  vertical-align: top;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ========================================
+// Default
+// ========================================
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  line-height: 1.7;
+  font-size: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: variables.$color-black;
+  font-family: variables.$font-gothic;
+  @include mixins.media() {
+    line-height: 1.5;
+    font-size: 1.6rem;
+  }
+}
+
+input,
+button,
+textarea {
+  outline: transparent;
+}
+
+a {
+  word-break: break-all;
+}
+
+.accordion_toggle {
+  display: none;
+}
+
+.accordion_label {
+  .accordion_toggle:checked ~ & {
+    font-weight: bold;
+  }
+}
+
+.accordion_body {
+  * {
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    line-height: 0;
+    transition: opacity .2s ease-out, overflow .2s ease, padding .2s ease-out, line-height .2s ease-out;
+  }
+  .accordion_toggle:checked ~ & {
+    * {
+      opacity: initial;
+      overflow: initial;
+      padding: initial;
+      line-height: 1.5;
+    }
+  }
+}

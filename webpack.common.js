@@ -105,10 +105,10 @@ const allPluginsSettings = () => {
 };
 
 module.exports = {
-  entry: ['./src/scripts/common.js','./src/styles/common.scss'],
+  entry: ['./src/scripts/main.js','./src/styles/main.scss'],
   output: {
     path: path.resolve(__dirname, 'public/'),
-    filename: 'assets/scripts/common.js',
+    filename: 'assets/scripts/main.js',
     sourceMapFilename: 'maps/[file].map',
   },
   module: {
@@ -154,10 +154,7 @@ module.exports = {
             }
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              parser: require('postcss-comment')
-            }
+            loader: 'postcss-loader'
           }
         ]
       }
